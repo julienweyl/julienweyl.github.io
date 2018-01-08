@@ -1,14 +1,15 @@
-body{
-    background: rgb(240, 240, 240);
-    color: rgb(20, 20, 20);
-    font-family: 'Open Sans', sans-serif;
-    margin: 0px;
+body, html {
+  height: 100%;
+  margin: 0;
+  color: rgb(20, 20, 20);
+  font-family: 'Open Sans', sans-serif;
 }
 
 h1{
     font-family: 'Montserrat', sans-serif;
     font-size: 50px;
-    color: red;
+    color: white;
+    height: 40%;
 }
 
 h2{
@@ -25,37 +26,50 @@ a:hover{
     text-decoration: none;
     color:green;
 }
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.65;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-/* Custom design */
-
-#banner{
-    background-image: url("https://picsum.photos/1000/600/?random");
-    background-size: cover;
-    padding: 150px 0;
-    text-align: center;
-    color: white;
+}
+.bgimg-1 {
+  background-image: url("background.jpeg");
+  height: 100%;
 }
 
-#banner h1{
-    color: white;
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
 }
 
-#banner p{
-    color: white;
-    font-size: 30px;
-    font-weight: lighter;
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
 }
 
-.card{
-    padding: 50px;
-    text-align: center;
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
 }
 
 #footer{
     background: black;
     color: white;
-    font-size: 20px;
+    font-size: 10px;
     padding: 20px;
+    text-align: center;
+    letter-spacing: 10px;
 }
 
 #footer a{
@@ -66,6 +80,3 @@ a:hover{
 #footer a:hoover{
     color: white;
 }
-
-
-
