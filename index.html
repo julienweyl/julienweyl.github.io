@@ -35,6 +35,7 @@
 <script src="assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
 
 
+
 </head>
 
 <body class="landing-page sidebar-collapse">
@@ -108,36 +109,11 @@
                     <h2>Change the way people move around cities</h2>
                     <h4 class="description">We create custom-based maps that optimise safety routes home for all.</h4>
                     <div class="text-center">
-                            <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+                            <button class="btn btn-primary" id="open-popup" onclick ="showMailingPopUp(); return false;">
                             Sign up to stay in touch!
-                            </button> -->
+                            </button>
 
-<!-- Begin MailChimp Signup Form -->
-<!-- <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup">
-<form action="https://lightyourway.us17.list-manage.com/subscribe/post?u=d7171b3d5248731ef6de78974&amp;id=8723f3cb42" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll">
-	<label for="mce-EMAIL">Subscribe to our mailing list</label>
-	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <!-- <div style="position: absolute; left: -5000px;" aria-hidden="true">
-        <input type="text" name="b_d7171b3d5248731ef6de78974_8723f3cb42" tabindex="-1" value="">
-    </div>
-    <div class="clear">
-        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-    </div>
-    </div>
-</form>
-</div> -->
-
-<!--End mc_embed_signup-->
-
-                        <div class="w-25 p-4 card card-plain" id="mc_embed_signup">
+                        <!-- <div class="w-25 p-4 card card-plain" id="mc_embed_signup">
                             <form action="https://lightyourway.us17.list-manage.com/subscribe/post?u=d7171b3d5248731ef6de78974&amp;id=8723f3cb42" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                                 <div class="input-group form-group-no-border input-md" id="mc_embed_signup_scroll">
                                     <span class="input-group-addon">
@@ -150,20 +126,10 @@
                                     </div>
                                 <div class="clear text-center">
                                         <input type="submit" value="Join our mailing list now" name="subscribe" id="mc-embedded-subscribe" class="btn btn-link btn-primary">
-                                        <!-- <button class="btn btn-link btn-primary" type="submit" data-toggle="modal" data-target="#myModal2">Join us!</button> -->
-                                </div>
+                                        <button class="btn btn-link btn-primary" type="submit" data-toggle="modal" data-target="#myModal2">Join us!</button>
+                                </div> -->
                             </form>
                         </div>
-                    </div>
-                        <!-- <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                            <i class="fa fa-facebook-square"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="#pablo" class="btn btn-primary btn-icon btn-round">
-                            <i class="fa fa-google-plus"></i>
-                        </a> -->
                     </div>
                 </div>
             </div>
@@ -357,6 +323,31 @@
             </div>
         </footer>
 </body>
+<!-- Pop-up Mailchimp js -->
+<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+<script>
+function showMailingPopUp() {
+  require(
+    ["mojo/signup-forms/Loader"],
+    function(L) {
+        L.start({"baseUrl":"mc.us17.list-manage.com","uuid":"d7171b3d5248731ef6de78974","lid":"8723f3cb42"})
+    }
+  );
 
+  document.cookie = 'MCPopupClosed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+  document.cookie = 'MCPopupSubscribed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+}
+	
+document.getElementById("open-popup").onclick = function() {showMailingPopUp()};
+</script>
+<!-- 
+<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+<script>
+function showMailingPopUp() {
+    require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us17.list-manage.com","uuid":"d7171b3d5248731ef6de78974","lid":"8723f3cb42"}) })
+};
+document.cookie = 'MCPopupClosed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+document.cookie = 'MCPopupSubscribed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+</script> -->
 
 </html>
