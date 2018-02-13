@@ -40,6 +40,13 @@
     border:none !important;
 }
 
+.vcenter {
+    display: inline-block;
+    vertical-align: middle !important;
+    position: relative;
+    top: 50%;
+}
+
 .orange-gradient {
     background: linear-gradient(#F87A56,#000000);
     opacity: 0.8;
