@@ -1,204 +1,409 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8' />
-        <title>amble maps testing</title>
-        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
-        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
-        <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.18"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-        <!--     Fonts and icons     -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-        <!-- CSS Files -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
-        <!-- CSS Just for demo purpose, don't include it in your project -->
-        <link href="assets/css/demo.css" rel="stylesheet" />
+<html lang="en">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="apple-touch-icon" href="http://amblemaps.com/assets/img-project/logo.png">
-        <style>
-            body { margin:0; padding:0; }
-            #map { position:absolute; top:0; bottom:0; width:100%; }
-        </style>
-    </head>
-
-    <body>
-        <div id='map' style=''></div>
-
-        <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoianVsaWVud2V5bCIsImEiOiJjamRrYmw4aHYxdWhpMndwZ216bmg5ZWk4In0.lCyVC0ADMzqycojHa2KNfg';
-    var map = new mapboxgl.Map({
-    container: 'map',
-    center: [-0.1259611,51.5217593],
-    zoom: 13,
-    style: 'mapbox://styles/mapbox/basic-v9', 
-    });
-
-    map.on('load', function() {
-      createMap();
-    });
-
-function createMap(data) {
-        map.addLayer({
-            "id": "route",
-            "type": "line",
-            "source": {
-                "type": "geojson",
-                "data": {
-                    "type": "Feature",
-                    "properties": {},
-                    "geometry": {"coordinates": [[-0.1259761,51.5289439],[-0.1260077,51.5289782],[-0.1260364,51.5290124],[-0.1260825,51.5290822],[-0.1261688,51.5290456],[-0.1263977,51.5289618],[-0.1272495,51.5286247],[-0.1273122,51.5285999],[-0.1274292,51.5285537],[-0.1277612,51.5284258],[-0.1278676,51.5283868],[-0.127989,51.5283367],[-0.1283226,51.5282064],[-0.128937,51.5279664],[-0.1294485,51.5277632],[-0.1294854,51.5277492],[-0.1296541,51.5276851],[-0.1297558,51.5276468],[-0.1304767,51.5273755],[-0.1305953,51.5273313],[-0.1306268,51.52732],[-0.130753,51.5272742],[-0.1309658,51.5271995],[-0.1319686,51.5268463],[-0.1320037,51.5268335],[-0.1320883,51.5268045],[-0.1329825,51.5264965],[-0.1331705,51.526431],[-0.1333895,51.5263548],[-0.1334315,51.5263416],[-0.1335714,51.5262963],[-0.133737,51.5262446],[-0.1345323,51.525976],[-0.1350932,51.5257877],[-0.1351889,51.5257545],[-0.1352378,51.5257375],[-0.1353498,51.5256987],[-0.1355596,51.5256012],[-0.1357278,51.5255403],[-0.1357643,51.5255185],[-0.1357988,51.5254986],[-0.1358394,51.5254729],[-0.1358263,51.5254552],[-0.1354366,51.5250624],[-0.1353644,51.5250047],[-0.1349338,51.5245621],[-0.1348767,51.5245086],[-0.1345781,51.5242289],[-0.134254,51.5239252],[-0.1339714,51.5236702],[-0.1326875,51.5224975],[-0.1326504,51.5224671],[-0.1326138,51.5224372],[-0.1325796,51.5224021],[-0.1315953,51.5214361],[-0.1315463,51.521388],[-0.1308153,51.520767],[-0.1303964,51.5204185],[-0.1303394,51.5203627],[-0.1300417,51.5200926],[-0.1296598,51.5197464],[-0.1295881,51.5196863],[-0.1291999,51.5193182],[-0.128798,51.5189481],[-0.1283787,51.5185576],[-0.1282467,51.5184396],[-0.1281668,51.5183703],[-0.1281093,51.5183513],[-0.1280787,51.5183392],[-0.1280579,51.5183194],[-0.1279982,51.5182626],[-0.1279771,51.5182034],[-0.1278957,51.5181228],[-0.1276504,51.5178409],[-0.1276138,51.5177898],[-0.1274763,51.5178235],[-0.1271056,51.5179111],[-0.1269775,51.5179439],[-0.1267345,51.518006],[-0.1261146,51.5182278],[-0.1258618,51.5183299],[-0.1259008,51.5183729],[-0.1258062,51.5184775]], "type": "LineString"}
-                }
-            },
-            "layout": {
-                "line-join": "round",
-                "line-cap": "round"
-            },
-            "paint": {
-                "line-color": "#66CD00",
-                "line-width": 5
-            }
-        });
-        map.addLayer({
-            "id": "route2",
-            "type": "line",
-            "source": {
-                "type": "geojson",
-                "data": {
-                    "type": "Feature",
-                    "properties": {},
-                    "geometry": {"coordinates": [[-0.1259761,51.5289439],[-0.1256889,51.5286098],[-0.1255061,51.5284031],[-0.1253509,51.5282371],[-0.1260032,51.5279808],[-0.1265035,51.5277843],[-0.1271102,51.5275459],[-0.1259154,51.5262399],[-0.125691,51.5260101],[-0.1255601,51.5257562],[-0.1255483,51.5257333],[-0.1255336,51.5257037],[-0.1255137,51.5256667],[-0.1254809,51.5255965],[-0.1251859,51.5249783],[-0.1248025,51.5243766],[-0.1247827,51.524346],[-0.1247538,51.5242993],[-0.124658,51.5241377],[-0.1245943,51.5240285],[-0.1241941,51.5233422],[-0.1241477,51.5232628],[-0.1242476,51.5232405],[-0.1249831,51.5230764],[-0.1253817,51.5229627],[-0.1256388,51.5228776],[-0.1257866,51.5228137],[-0.1259408,51.5227471],[-0.1258803,51.5226923],[-0.1258205,51.5226889],[-0.1258596,51.5225664],[-0.1258937,51.522517],[-0.1259476,51.5223124],[-0.1259343,51.522157],[-0.1259266,51.5220667],[-0.1259081,51.5219484],[-0.125955,51.5218471],[-0.1259973,51.521765],[-0.1259611,51.5217593],[-0.1259316,51.5217499],[-0.1259007,51.5217334],[-0.1258705,51.5217024],[-0.1258608,51.521674],[-0.1258609,51.5216611],[-0.1258703,51.5216339],[-0.1258889,51.5216119],[-0.1259264,51.5215883],[-0.1259656,51.5215757],[-0.1260371,51.5215709],[-0.1260624,51.5215113],[-0.1260675,51.5214537],[-0.1260894,51.5213716],[-0.1261481,51.5212605],[-0.1262088,51.5211621],[-0.1262495,51.5209994],[-0.1262442,51.5208807],[-0.1262536,51.5208222],[-0.1263426,51.5207132],[-0.126286,51.5206578],[-0.1262374,51.5206128],[-0.126204,51.5205837],[-0.1261849,51.5205659],[-0.1262362,51.5205425],[-0.1262872,51.5205222],[-0.1262298,51.5204697],[-0.1254851,51.5198409],[-0.1254294,51.5197928],[-0.1245079,51.5190225],[-0.1244557,51.5189788],[-0.1244106,51.5189418],[-0.1245726,51.5188714],[-0.1247317,51.5188018],[-0.1247921,51.5187766],[-0.1253766,51.5185322],[-0.1257112,51.5183907],[-0.1258618,51.5183299],[-0.1259008,51.5183729],[-0.1258062,51.5184775]], "type": "LineString"}
-                }
-            },
-            "layout": {
-                "line-join": "round",
-                "line-cap": "round"
-            },
-            "paint": {
-                "line-color": "#000",
-                "line-width": 5
-            }
-        });
-        map.addLayer({
-          id: 'start',
-          type: 'circle',
-          source: {
-            type: 'geojson',
-            data: {
-              type: 'Feature',
-              geometry: {
-                type: 'Point',
-                coordinates: [-0.1259761,51.5289439]
-              }
-            }
-          }
-        });
-        map.addLayer({
-          id: 'end',
-          type: 'circle',
-          source: {
-            type: 'geojson',
-            data: {
-              type: 'Feature',
-              geometry: {
-                type: 'Point',
-                coordinates: [-0.1258062,51.5184775]
-              }
-            }
-          }
-        });
-}
-
-// Manage the current position on the map
-var lat = null;
-var lng = null;
-
-navigator.geolocation.getCurrentPosition(function(position) {
-    var locationMarker = null;
-    if (locationMarker){
-      // return if there is a locationMarker bug
-      return;
-    }
-    // sets default position to your position
-    lat = position.coords["latitude"];
-    lng = position.coords["longitude"];
-    currentCoordinates = '[' + lng + ',' + lat + ']';
-    console.log(currentCoordinates)
-    },
-    function(error) {
-    console.log("Error: ", error);
-    },
-    {
-    enableHighAccuracy: true
-    })
-
-// Add geolocate control to the map.
-map.addControl(new mapboxgl.GeolocateControl({
-    positionOptions: {
-        enableHighAccuracy: true
-    },
-    trackUserLocation: true
-}));
-
-// Add zoom and rotation controls to the map.
-map.addControl(new mapboxgl.NavigationControl());
-
-        </script>
-
-    <div class="card text-center" style="width: 60%; padding-top: 10px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; margin-left: 20%; margin-top: 10px; margin-right: 10px">
-        <h6>Welcome to amble!</h6>
-        <h7 style="font-size: 12px;">The first personalised navigation app, designed with you in mind.</h7>
-    </div>
-
-    <div class="card text-center" style="position: absolute; bottom: 0; width: 60%; padding-top: 10px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; margin-left: 20%; margin-top: 10px; margin-right: 10px">
-        <h7 style="font-size: 12px;"><strong>Black route:</strong> Fastest route - 18min</h7>
-        <h7 style="font-size: 12px;"><strong>Green route:</strong> Amble route - 22min</h7>
-    </div>
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/faviconamble.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Amble</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+    <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+    <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+    <style type="text/css">#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}</style>
 
 
-            <script>
-              var placesAutocomplete = places({
-                container: document.querySelector('#address-input-origin'),
-              });
-              var placesAutocomplete = places({
-                container: document.querySelector('#address-input-destination'),
-              });
+<!--   Core JS Files   -->
+<script src="assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+<!-- <script src="../assets/js/new/saveToFirebase.js" type="text/javascript"></script> -->
+<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src=".assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+<script src="assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+<script src="assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
 
-    // Prevent button reload for form
-    $("#form-address").submit(function(e){
-        e.preventDefault();
-    })
-    // Create variable for address information
-    $("#button").click(function(e){
-        var addressOrigin = $("#address-input-origin").val();
-        var addressDestination = $("#address-input-destination").val();
-        var addressInfomation = {
-            "start": addressOrigin,
-            "end": addressDestination,
-            "user_id": "2"
-        }
-    // Query set-up
-    var b = jQuery.parseJSON( '{ "start": "camden town station, London, United Kingdom", "end": "baker street station, London, United Kingdom", "user_id": 2 }' );
-    console.log(addressInfomation)
-    // POST request to server
-    $.ajax({
-        url: "35.197.240.46:5000",
-        data: addressInfomation,
-        type: "POST",
-        success: function (data) {
-            console.log(data);
-            // createMap(data.addressInfomation);
-        },
-        error: function (data){
-            console.log(data.responseText);
-        }
-    })
-})
-            </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114157067-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-114157067-1');
+</script>
+
+</head>
+
+<body class="landing-page sidebar-collapse">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
+        <div class="container">
+            <!-- <div class="dropdown button-dropdown">
+                <a href="#pablo" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
+                    <span class="button-bar"></span>
+                    <span class="button-bar"></span>
+                    <span class="button-bar"></span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-header">Dropdown header</a>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">One more separated link</a>
+                </div>
+            </div> -->
+            <div class="navbar-translate">
+                <!-- <img src="assets/img-project/amble_logo_white.png" alt="" height="42" width="42"> -->
+                <a class="navbar-brand" href="index.html" rel="tooltip" data-placement="bottom">
+                    AMBLE MAPS
+                </a>
+                <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="assets/img/blurred-image-1.jpg">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./aboutus.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://eepurl.com/dimeA5">Get early access</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/amblemaps" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                            <p class="d-lg-none d-xl-none">Twitter</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/AmbleMaps-543642625996166/?modal=admin_todo_tour" target="_blank">
+                            <i class="fa fa-facebook-square"></i>
+                            <p class="d-lg-none d-xl-none">Facebook</p>
+                        </a>
+                    </li>
+<!--                     <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/agsdsgfsdGSDg" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                            <p class="d-lg-none d-xl-none">Instagram</p>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
         </div>
-    <body>
-</html>
+    </nav>
+    <!-- End Navbar -->
+    <!-- Header -->
+    <div class="wrapper">
+        <div class="page-header">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('assets/img-project/background.jpeg');">
+            </div>
+            <div class="container">
+                <div class="content-center">
+                    <h2>Reinventing navigation with you in mind</h2>
+                    <h4 class="description">Amble is a navigational app that provides <b>personalised</b> safety routes for women.
+                    Launching in your city soon!</h4>
+                    </br>
+                        <!-- Begin MailChimp Signup Form -->
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                            <!-- <form action="https://lightyourway.us17.list-manage.com/subscribe/post?u=d7171b3d5248731ef6de78974&amp;id=8723f3cb42" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate> -->
+                            <form method="get" action="http://eepurl.com/dimeA5">
+                            <!-- <input type="email" value="" name="EMAIL" class="form-control email" id="mce-EMAIL" placeholder="email address" align="middle" required> -->
+                            <button class="btn btn-primary" type="submit" value="Submit">
+                            Join our waiting list now!
+                            </button>
+                            <!-- <button class="btn btn-primary" type="submit" form="mc-embedded-subscribe-form" value="Submit">
+                            Join our waiting list now!
+                            </button> -->
+                            </form>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                        <!--End mc_embed_signup-->
+
+                            <!-- <button class="btn btn-primary" id="open-popup" onclick ="showMailingPopUp(); return false;">
+                            Sign up to stay in touch!
+                            </button> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Section -->
+    <div class="section section-gray">
+        <div class="container text-center">
+            <!-- <h4 class="header-text">They were the first to go PlayIT</h4>
+            <p>
+                Build customer confidence by listing your users! Anyone who has used your service and has been pleased with it should have a place here! From Fortune 500 to start-ups, all your app enthusiasts will be glad to be featured in this section. Moreover, users will feel confident seing someone vouching for your product!<br>
+            </p>
+            <br><br> -->
+            <div class="row">
+                <div class="col-md-4">
+                  <a href="https://www.bbc.co.uk/" target="_blank"><img src="assets/img-project/logo_bbc_BW_grey.png" style="height:50px;"></a>
+                </div>
+                <div class="col-md-4">
+                  <a href="http://www.asidatascience.com" target="_blank"><img src="assets/img-project/logo_asi_BW.png" style="height:50px;"></a>
+                </div>
+                <div class="col-md-4">
+                  <a href="http://www.zinc.vc" target="_blank"><img src="assets/img-project/logo_zinc_BW.png" style="height:50px;"></a>
+                </div>
+              </div>
+        </div>
+    </div>
+    <!-- Section -->
+
+            <div class="section">
+              <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto text-center">
+                        <h2 class="title">What is amble?</h2>
+                        <h7 class="">
+                          Amble is a navigational app that provides personalised safety routes for women.
+                          <br><br>We want women to enjoy the journey as much as the destination. Currently, maps are designed with cars in mind and at Amble we believe in people first. Whether you're walking or on public transport we help you get from A to B easily and safely.
+                        </h7>
+                        <br><br><br><br><br><br>
+                    </div>
+                </div>
+
+                <div class="row row-feature">
+                    <div class="col-md-3 ml-auto mr-auto text-justify">
+                        <div class="info info-horizontal">
+                            <!-- <div class="icon icon-info">
+                                <i class="now-ui-icons design-2_html5"></i>
+                            </div> -->
+                            <div class="">
+                                <h4 class="info-title">Personalisation</h4>
+                                <p>Every person is different and we give you the tools to design your route based on your own unique preferences.    </p>
+                            </div>
+                        </div>
+                        <br><br>
+
+                        <div class="info info-horizontal">
+                            <!-- <div class="icon icon-danger">
+                                <i class="now-ui-icons design_palette"></i>
+                            </div> -->
+                            <div class="">
+                                <h4 class="info-title">Smart routing</h4>
+                                <p>Unlike other navigational apps we don't just optimise for time but route you down the streets you feel safest enabling you to avoid green spaces, unlit streets, quiet streets and alleyways. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="phone-container">
+                            <img src="assets/img-project/amble_navigation_screen.png">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 ml-auto mr-auto text-justify">
+                        <div class="info info-horizontal">
+                            <!-- <div class="icon icon-primary">
+                                <i class="now-ui-icons design-2_ruler-pencil"></i>
+                            </div> -->
+                            <div class="">
+                                <h4 class="info-title">Reporting</h4>
+                                <p>Amble allows you to review your route and report issues or incidences you encounter ensuring that your route and the of your fellow Amblers continuously improves. </p>
+                            </div>
+                        </div>
+
+                        <div class="info info-horizontal">
+                            <!-- <div class="icon icon-success">
+                                <i class="now-ui-icons files_single-copy-04"></i>
+                            </div> -->
+                            <div class="">
+                                <h4 class="info-title">Voice enabled</h4>
+                                <p>We know that voice is the future and how we as humans like to connect with the world around us. Instead of looking down at your phone, we allow you to enjoy your surroundings whilst we navigate you by point of interest</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+    <!-- Section -->
+    <div class="separator separator-primary" ></div>
+    <div class="section text-center" >
+            <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 ml-auto mr-auto text-center">
+                            <h2 class="title">The problem</h2>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                      <div class="col-md-3">
+                            <h7 class="">
+                                  A study of <b><strong>42,000</b></strong> women in Europe showed that half restricted their freedom of movement based on the fear of violence.
+                            </h7>
+                        </div>
+                        <div class="col-md-3">
+                              <h7 class="">
+                                    In the UK, <b><strong>64%</b></strong> of women have experienced unwanted sexual harassment in public places.
+                              </h7>
+                          </div>
+                          <div class="col-md-3">
+                                <h7 class="">
+                                      <b><strong>9 in 10</b></strong> girls experience street harassment before they are 17.
+                                </h7>
+                            </div>
+                            <div class="col-md-3">
+                                  <h7 class="">
+                                        <b><strong>71%</b></strong> of women and girls in the UK have been forces to change their route or avoid parks to guard themselves from harassment.
+                                  </h7>
+                              </div>
+                    </div>
+                </div>
+            </div>
+    <!-- Section -->
+                <!-- <div class="separator separator-primary" ></div>
+                <div class="section text-center">
+                        <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 vcenter">
+                                        <img src="assets/img-project/phones.png" width="300" alt="" class="")>
+                                        </img>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h2 class="title">Reinventing navigation... with you in mind!</h2>
+                                        <h7 class="description">
+                                            <p><b>
+                                              In a world where streaming sites know us well enough to recommend TV shows we might like, or music we want to listen to, it seems absurd that maps don’t recognise the different ways we like to navigate the city. Other maps allow you to avoid a traffic jam or a toll way, so why can’t we avoid an unlit street, a park, or a hotspot for inappropriate behaviour? This is all about to change with Amble as we put you at the centre of your journey.
+                                            </b></p>
+                                        </h7>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+    <!-- Section -->
+<!--     <div class="separator separator-primary" ></div> -->
+                <!-- <div class="section section-team text-center" data-background-color="black">
+                    <div class="container" >
+                        <h2 class="title">Core principle</h2>
+                        <div class="team">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="team-player">
+                                        <p class="category text-primary">Personal level</p>
+                                        <p class="description">We want to empower women to make informed decisions to improve their mobility. They can review their route, report any issues or incidence creating a community of travellers invested in each other’s safety.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="team-player">
+                                        <p class="category text-primary">Structural level</p>
+                                        <p class="description">A decentralised reporting system will capture data that will allow police, councils, and public transport systems to respond to the functional aspects of public spaces that impact safety.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="team-player">
+                                        <p class="category text-primary">Cultural level</p>
+                                        <p class="description">We want to catalyse cultural change to transform public spaces in order to reduce incidence of harassment, improve the infrastructure, and create safer, and enjoyable spaces for all.
+                                        </p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+    <!-- Section -->
+<!--     <div class="separator separator-primary" ></div> -->
+    <!-- <div class="section text-center">
+            <div class="container">
+                    <div class="row">
+                        <div class="card card-quote" data-background-color="orange">
+                            <h4 class="title-italic">"Maps are only about getting from a to b. The route may be quickest but it also seems dodgiest."</h4>
+                                    <p><b>Ms. Claire Johns</p></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="separator separator-primary" ></div> -->
+    <!-- Section -->
+                <!-- <div class="section section-team text-center">
+                    <div class="container" >
+                            <h2 class="title">Member and partners</h2>
+                            <p>Amble thrives from our various communities including our amazing clients and partners. Partner or become members to commit your business to tackle sexual harassment and help build safer and smarter cities for everyone.
+                            </p>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                        <a href="https://www.asidatascience.com/" target="_blank"><img id="logo_asi" src="assets/img-project/logo_asi.svg" alt="logo" height="60" /></a>
+                                </div>
+                                <div class="col-md-6">
+                                      <a href="https://www.zinc.vc" target="_blank"><img id="logo_zinc" src="assets/img-project/logo_zinc.png" alt="logo" height="50"/></a>
+                                </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+    <!-- Section -->
+                    <!-- Section -->
+                            <div class="section text-center" data-background-color="black">
+                                <div class="container">
+                                  <br>
+                                  <br>
+                                    <form method="get" action="http://eepurl.com/dimeA5">
+                                        <button class="btn btn-primary btn-round btn-lg" type="submit" value="Submit">
+                                        Join our waiting list now!
+                                        </button>
+                                    </form>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row justify-content-md-center sharing-area text-center">
+                                    <div class="text-center col-md-12 col-lg-8">
+                                        <h3>Thank you for supporting us!</h3>
+                                    </div>
+                                    <div class="text-center col-md-12 col-lg-8">
+                                        <a target="_blank" href="https://twitter.com/amblemaps" class="btn btn-neutral btn-icon btn-twitter btn-round btn-lg" rel="tooltip" title="Follow us">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                        <a target="_blank" href="https://www.facebook.com/AmbleMaps-543642625996166/?modal=admin_todo_tour" class="btn btn-neutral btn-icon btn-facebook btn-round btn-lg" rel="tooltip" title="Like us">
+                                            <i class="fa fa-facebook-square"></i>
+                                        </a>
+                                        <a target="_blank" href="https://www.linkedin.com/company/amble-maps/" class="btn btn-neutral btn-icon btn-linkedin btn-lg btn-round" rel="tooltip" title="Follow us">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                    <!-- Section -->
+                            <footer class="footer" data-background-color="black">
+                            <div class="container">
+                                    <div class="copyright">
+                                        &copy;
+                                        <script>
+                                            document.write(new Date().getFullYear())
+                                        </script>, Amble maps, all rights reserved. Read our data policy <a href="./data.html">here</a>
+                                    </div>
+                                </div>
+                            </footer>
+                            </div>
+                    </body>
+                    </html>

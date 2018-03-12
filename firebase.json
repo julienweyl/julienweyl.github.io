@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "ambleWebsite",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

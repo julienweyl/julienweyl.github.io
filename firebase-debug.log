@@ -1,0 +1,38 @@
+[debug] [2018-03-08T14:28:26.291Z] ----------------------------------------------------------------------
+[debug] [2018-03-08T14:28:26.295Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --debug
+[debug] [2018-03-08T14:28:26.295Z] CLI Version:   3.17.5
+[debug] [2018-03-08T14:28:26.295Z] Platform:      darwin
+[debug] [2018-03-08T14:28:26.295Z] Node Version:  v8.9.4
+[debug] [2018-03-08T14:28:26.296Z] Time:          Thu Mar 08 2018 14:28:26 GMT+0000 (GMT)
+[debug] [2018-03-08T14:28:26.296Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-08T14:28:26.310Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-08T14:28:26.311Z] > authorizing via signed-in user
+[debug] [2018-03-08T14:28:26.313Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/amblewebsite  
+  
+ Thu Mar 08 2018 14:28:26 GMT+0000 (GMT)
+[debug] [2018-03-08T14:28:27.019Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-08T14:28:27.020Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/amblewebsite/tokens  
+  
+ Thu Mar 08 2018 14:28:27 GMT+0000 (GMT)
+[debug] [2018-03-08T14:28:27.553Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'amblewebsite'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing ambleWebsite directory for upload...
+[debug] [2018-03-08T14:28:28.241Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/amblewebsite/uploads/-L75-qCptNShwfujepGc?fileCount=2&message=  
+  
+ Thu Mar 08 2018 14:28:28 GMT+0000 (GMT)
+[debug] [2018-03-08T14:28:29.262Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-08T14:28:29.263Z] [hosting] .tgz uploaded successfully, waiting for extraction
+[info] ✔  hosting: 2 files uploaded successfully
+[debug] [2018-03-08T14:28:30.152Z] >>> HTTP REQUEST POST https://deploy.firebase.com/v1/projects/amblewebsite/releases  
+ { hosting: 
+   { public: 'ambleWebsite',
+     ignore: [ 'firebase.json', '**/.*', '**/node_modules/**' ],
+     version: '-L75-qCptNShwfujepGc',
+     prefix: '-L75-qCptNShwfujepGc/',
+     manifest: [] } } 
+ Thu Mar 08 2018 14:28:30 GMT+0000 (GMT)
+[debug] [2018-03-08T14:28:31.313Z] <<< HTTP RESPONSE 200
