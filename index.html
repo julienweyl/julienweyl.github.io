@@ -19,6 +19,7 @@
         <link href="assets/css/demo.css" rel="stylesheet" />
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="apple-touch-icon" href="http://amblemaps.com/assets/img-project/logo.png">
         <style>
             body { margin:0; padding:0; }
             #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -32,15 +33,13 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoianVsaWVud2V5bCIsImEiOiJjamRrYmw4aHYxdWhpMndwZ216bmg5ZWk4In0.lCyVC0ADMzqycojHa2KNfg';
     var map = new mapboxgl.Map({
     container: 'map',
-    center: [-0.1259761,51.5289439],
-    zoom: 13.5,
+    center: [-0.1259611,51.5217593],
+    zoom: 13,
     style: 'mapbox://styles/mapbox/basic-v9', 
     });
-
     map.on('load', function() {
       createMap();
     });
-
 function createMap(data) {
         map.addLayer({
             "id": "route",
@@ -111,11 +110,9 @@ function createMap(data) {
           }
         });
 }
-
 // Manage the current position on the map
 var lat = null;
 var lng = null;
-
 navigator.geolocation.getCurrentPosition(function(position) {
     var locationMarker = null;
     if (locationMarker){
@@ -134,7 +131,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
     {
     enableHighAccuracy: true
     })
-
 // Add geolocate control to the map.
 map.addControl(new mapboxgl.GeolocateControl({
     positionOptions: {
@@ -142,30 +138,20 @@ map.addControl(new mapboxgl.GeolocateControl({
     },
     trackUserLocation: true
 }));
-
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
-
         </script>
 
-    <div id="input-styling-address" class="card" style="width: 30%; padding-top: 10px; padding-left: 10px; padding-right: 10px; margin-top: 10px; margin-left: 10px">
-    <h6>Amble map route vs fastest route: test us!</h6>
-    <form class="form" id="form-address">
-        <div class="form">
-            <label for="form-address"></label>
-            <input type="search" id="address-input-origin" placeholder="Origin" style=""/>
-        </div>
-        <div class="form" style="padding-bottom: 5px">
-            <label for="form-address"></label>
-            <input type="search" id="address-input-destination" placeholder="Destination" style=""/>
-        </div>
-        <button class="btn btn-primary btn-sm" id="button">Show me the way</button>
-        <h10 style="font-size: 10;">*only available in London</h10> 
-    </form>
-</div>
-    <div class="card" style="width: 30%; padding-top: 10px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; margin-left: 10px">
-        <h7 id="test">With amble, you can optimise your route based on your preferences.</h7>
+    <div class="card text-center" style="width: 60%; padding-top: 10px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; margin-left: 20%; margin-top: 10px; margin-right: 10px">
+        <h6>Welcome to amble!</h6>
+        <h7 style="font-size: 12px;">The first personalised navigation app, designed with you in mind.</h7>
     </div>
+
+    <div class="card text-center" style="position: absolute; bottom: 0; width: 60%; padding-top: 10px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; margin-left: 20%; margin-top: 10px; margin-right: 10px">
+        <h7 style="font-size: 12px;"><strong>Black route:</strong> Fastest route - 18min</h7>
+        <h7 style="font-size: 12px;"><strong>Green route:</strong> Amble route - 22min</h7>
+    </div>
+
 
             <script>
               var placesAutocomplete = places({
@@ -174,7 +160,6 @@ map.addControl(new mapboxgl.NavigationControl());
               var placesAutocomplete = places({
                 container: document.querySelector('#address-input-destination'),
               });
-
     // Prevent button reload for form
     $("#form-address").submit(function(e){
         e.preventDefault();
